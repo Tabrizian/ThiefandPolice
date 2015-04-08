@@ -6,14 +6,14 @@ public class Police extends Actor {
 	}
 
 	/**
-	 * @return the thiefPos
+	 * @return thief position.
 	 */
 	public static Position getThiefPos() {
 		return thiefPos;
 	}
 
 	/**
-	 * @param thiefPos
+	 * @param thief position
 	 *            the thiefPos to set
 	 */
 	public static void setThiefPos(Position thiefPos) {
@@ -22,16 +22,27 @@ public class Police extends Actor {
 
 	public Direction getDirection(Map map) {
 		Position[] neighb;
-		neighb = Neighbor.getNeighb(this.pos,map);
+		neighb = Neighbor.getNeighb(this.pos, map);
 		for (int i = 0; i < neighb.length; i++) {
-			if(neighb[i]==null){
-				i=i;
+			if (neighb[i] == null) {
+				continue;
 			}
-			if(map.getPos(neighb[i])=='D'){
+			if (map.getPos(neighb[i]) == 'D') {
 				return Direction.values()[i];
 			}
 		}
+
+		Position[] secondNeighb = Neighbor.getSecondNeighb(neighb, map);
+
+		for (int i = 0; i < secondNeighb.length; i++) {
+			if (secondNeighb[i] == null) {
+				continue;
+			}
+			if (map.getPos(secondNeighb[i]) == 'D') {
+				return Direction.values()[i / 2];
+			}
+		}
+
 		return null;
 	}
-
 }

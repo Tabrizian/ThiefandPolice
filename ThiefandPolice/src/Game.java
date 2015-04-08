@@ -48,7 +48,7 @@ public class Game {
 	}
 
 	private void show() {
-
+		System.out.printf("%c[2J",0x1B);
 		System.out.println("Time:" + time);
 		for (int i = map.getMap().length - 1; i >= 0; i--) {
 			for (int j = 0; j < map.getMap()[0].length; j++) {
