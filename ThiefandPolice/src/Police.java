@@ -1,23 +1,7 @@
 public class Police extends Actor {
-	private static Position thiefPos;
-
+	
 	public Police(Map map) {
 		super('P', map);
-	}
-
-	/**
-	 * @return thief position.
-	 */
-	public static Position getThiefPos() {
-		return thiefPos;
-	}
-
-	/**
-	 * @param thief position
-	 *            the thiefPos to set
-	 */
-	public static void setThiefPos(Position thiefPos) {
-		Police.thiefPos = thiefPos;
 	}
 
 	public Direction getDirection(Map map) {

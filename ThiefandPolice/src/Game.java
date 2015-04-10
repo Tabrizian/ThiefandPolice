@@ -33,7 +33,7 @@ public class Game {
 					events.add(polices[j].move(direction, j));
 				}
 			}
-			events.add(thief.move(Direction.values()[rnd.nextInt(8)], 0));
+			events.add(thief.move(thief.getDirection(map), 0));
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
