@@ -8,6 +8,12 @@ public class Thief extends Actor {
 		int min = 10;
 		Direction direction = null; // direction in which polices are minimum,
 		Position[] neighbs = Neighbor.getNeighb(pos, map);
+		// Checking if the in the neighbs there is a Police.
+		for (int i = 0; i < neighbs.length; i++) {
+			if (neighbs[i] != null)
+				if (map.getPos(neighbs[i]) == 'P')
+					return Direction.NORTH; // Thief must yield.
+		}
 		for (int i = 0; i < neighbs.length; i++) {
 			for (Position position : neighbs) {
 				int numberOfPolices = 0;
@@ -25,6 +31,8 @@ public class Thief extends Actor {
 					min = numberOfPolices;
 					direction = Direction.values()[i];
 				}
+				if (min == 0)
+					break;
 			}
 		}
 		return direction;

@@ -33,7 +33,8 @@ public class Game {
 					events.add(polices[j].move(direction, j));
 				}
 			}
-			events.add(thief.move(thief.getDirection(map), 0));
+			Direction direction = thief.getDirection(map);
+			events.add(thief.move(direction, 0));
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

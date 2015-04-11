@@ -4,6 +4,7 @@ public class Neighbor {
 		for (int i = 0; i < neighb.length; i++) {
 			try {
 				neighb[i] = pos.getNextPos(Direction.values()[i], map);
+				map.getPos(pos);
 			} catch (ArrayIndexOutOfBoundsException e) {
 			}
 		}
